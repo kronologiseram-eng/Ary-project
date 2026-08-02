@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: var(--font-jetbrains), "SFMono-Regular", ui-monospace, Menlo, Consolas,
+    "Liberation Mono", monospace;
+}
+
+html,
+body {
+  background-color: #08090c;
+  color-scheme: dark;
+}
+
+body {
+  background-image:
+    radial-gradient(900px 500px at 12% -10%, rgba(16, 185, 129, 0.14), transparent 60%),
+    radial-gradient(760px 460px at 92% 0%, rgba(34, 197, 94, 0.09), transparent 55%),
+    linear-gradient(180deg, #08090c 0%, #0a0b0f 40%, #08090c 100%);
+  background-attachment: fixed;
+}
+
+.grid-backdrop {
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse 90% 60% at 50% 0%, #000 30%, transparent 100%);
+}
+
+/* neon utilities ---------------------------------------------------------- */
+.glow-emerald {
+  box-shadow:
+    0 0 0 1px rgba(16, 185, 129, 0.35),
+    0 0 22px -4px rgba(16, 185, 129, 0.55);
+}
+.glow-red {
+  box-shadow:
+    0 0 0 1px rgba(244, 63, 94, 0.4),
+    0 0 22px -4px rgba(244, 63, 94, 0.5);
+}
+.text-glow {
+  text-shadow: 0 0 14px rgba(16, 185, 129, 0.55);
+}
+
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
+.animate-pulse-ring {
+  animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes caret {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+.animate-caret {
+  animation: caret 1s step-end infinite;
+}
+
+@keyframes marquee-x {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(320%);
+  }
+}
+.animate-scan {
+  animation: marquee-x 2.2s linear infinite;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-log-in {
+  animation: fade-in-up 0.18s ease-out;
+}
+
+/* scrollbars -------------------------------------------------------------- */
+.thin-scroll::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.thin-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.thin-scroll::-webkit-scrollbar-thumb {
+  background: rgba(71, 85, 105, 0.6);
+  border-radius: 999px;
+}
+.thin-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(16, 185, 129, 0.6);
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
